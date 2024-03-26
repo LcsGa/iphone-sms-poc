@@ -34,6 +34,7 @@ sendButton.addEventListener("click", () => {
     const newTab = open();
 
     newTab.location.replace(`sms:/open?addresses=${phones.join(",")}&body=${msg}`);
+    newTab.close();
   }
 });
 
