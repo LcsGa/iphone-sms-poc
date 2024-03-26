@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+body {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100lvh;
+}
+
+main {
+  max-width: 600px;
+  width: 100%;
+  display: grid;
+  gap: 1rem;
+}
+
+.phones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: lightgray;
+  border: 1px solid gray;
+  border-radius: 9999px;
+  padding: 0.125rem 0.5rem;
+  font-size: 12px;
+  cursor: pointer;
+
+  button {
+    background: none;
+    border: none;
+    color: gray;
+  }
+}
+
+.phone-field {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.message {
+  display: grid;
+  gap: 0.5rem;
+  justify-items: end;
+}
+
+textarea {
+  width: 100%;
+  resize: none;
+}
