@@ -33,11 +33,7 @@ sendButton.addEventListener("click", () => {
   if (phones.length && msg) {
     const newTab = open();
 
-    console.log(newTab.location);
-
     newTab.location.replace(`sms:/open?addresses=${phones.join(",")}&body=${msg}`);
-
-    console.log(newTab.location);
   }
 });
 
