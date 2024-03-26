@@ -4,7 +4,7 @@ const addPhoneButton = document.querySelector(".phone-field button");
 const phonesEl = document.querySelector(".phones");
 
 const message = document.querySelector("textarea");
-const sendLink = document.querySelector(".message a");
+const sendButton = document.querySelector(".message button");
 
 let phones = [];
 
@@ -27,7 +27,10 @@ addPhoneButton.addEventListener("click", () => {
   phoneInput.value = "";
 });
 
-message.addEventListener("keyup", () => updateSmsLink());
+sendButton.addEventListener("click", () => {
+  const msg = encodeURI(message.value.trim());
+  if (phones.length && msg) location.replace(`sms:/open?addresses=${phones.join(",")}&body=${msg}`);
+});
 
 function renderPhones() {
   phonesEl.innerHTML = "";
@@ -47,16 +50,8 @@ function renderPhones() {
     phoneEl.addEventListener("click", () => {
       phones = phones.filter((_, _i) => _i !== i);
       renderPhones();
-      updateSmsLink();
     });
 
     phonesEl.appendChild(phoneEl);
-    updateSmsLink();
   });
-}
-
-function updateSmsLink() {
-  const msg = encodeURI(message.value.trim());
-  if (phones.length && msg) sendLink.href = `sms:/open?addresses=${phones.join(",")}&body=${msg}`;
-  else sendLink.removeAttribute("href");
 }
