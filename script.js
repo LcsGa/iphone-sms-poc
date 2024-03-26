@@ -27,7 +27,7 @@ addPhoneButton.addEventListener("click", () => {
   phoneInput.value = "";
 });
 
-message.addEventListener("keydown", () => updateSmsLink());
+message.addEventListener("keyup", () => updateSmsLink());
 
 function renderPhones() {
   phonesEl.innerHTML = "";
